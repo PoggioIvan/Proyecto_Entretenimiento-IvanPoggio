@@ -1,0 +1,13 @@
+{% extends "app\padre.html" %}
+{% load static %}
+
+{% block titulo %}
+    {% for pelicula in object_list %}
+        <li>
+            <p>pelicula: {{pelicula.nombre}}</p>
+            <a href="{% url 'peliculasdetalle' pelicula.id %}">Ver</a>
+
+
+        </li>
+    {% endfor %}
+{% endblock %}

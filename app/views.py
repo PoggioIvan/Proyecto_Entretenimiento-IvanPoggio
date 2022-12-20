@@ -1,26 +1,23 @@
 from django.shortcuts import render
-from .models import *
+from app.models import *
 from app.forms import *
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 # Create your views here.
 def inicio(request):
     return render(request, "app/inicio.html")
 
 class peliculas(ListView):
-    model=peliculas 
-    template_name= "app/peliculas.html"
-class series(ListView):
-    model=series
-    template_name= "app/series.html"
-class documentales(ListView):
-    model=documental
-    template_name="app/documental.html"
+    model=Pelicula 
+    template_name= "app/peliculas_list.html"
 
-    
+class peliculasdetalle(DetailView):
+    model=peliculas
+    template_name= "app/pelicula_detalle.html"
+
 def CargarPeliculas(request):
     if request.method=="POST":
-        form= PeliculasForm(request.POST)
+        form= PeliculaForm(request.POST)
 
         if form.is_valid():
             informacion=form.cleaned_data
@@ -33,14 +30,27 @@ def CargarPeliculas(request):
             pelicula.save()
             return render(request, "app/peliculas.html", {"mensaje":"peli cargada correctamente"})
         else:
-            return render(request, "app/cargarpeli.html", {"form":form, "mensaje":"info invalida"})
+            return render(request, "app/CargarPeliculas.html", {"form":form, "mensaje":"info invalida"})
     else:
-        formulario= PeliculasForm()
-        return render (request, "app/cargarpeli.html", {"form": formulario})
+        formulario= PeliculaForm()
+        return render (request, "app/CargarPeliculas.html", {"form": formulario})
+
+#............................................................................................................................................
+class series(ListView):
+    model=Serie
+    template_name= "app/series.html"
+
+
+
+
+
+
+
+
 
 def CargarSeries(request):
     if request.method=="POST":
-        form= SeriesForm(request.POST)
+        form= SerieForm(request.POST)
 
         if form.is_valid():
             info= form.cleaned_data
@@ -55,13 +65,17 @@ def CargarSeries(request):
         else:
             return render(request, 'app/cargarseries.html', {"form": form, "mensaje": "info invalida"})
     else:
-        formulario=SeriesForm()
+        formulario=SerieForm()
         return render(request, 'app/cargarseries.html', {"form": formulario})
 
 def cargardocumentales(request):
     pass
 
 
+
+class documentales(ListView):
+    model=Documental
+    template_name="app/documental.html"
 
 
 
