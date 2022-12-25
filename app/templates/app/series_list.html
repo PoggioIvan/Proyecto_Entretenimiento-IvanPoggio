@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block titulo %}
-<h1 style="color:whitesmoke">Peliculas</h1>
+<h1 style="color:whitesmoke">Series</h1>
 <h3 style="color: rgb(255, 255, 255);"> {{ mensaje }} </h3>
 {% endblock %}
 
 {% block contenido_que_cambia %}
    <ul>
      {% for Peliculas in object_list %}
-       <h1> <li> {{pelicula.nombre}} </li><i> <a href="{% url 'peliculasdetalle' pelicula.id %}">Ver</a> </i><i><a href="{% url 'eliminarpelicula' pelicula.id %}">Eliminar</a> </i></h1>
+        <li> <i>{{serie.nombre}} </i></li> <a href="{% url 'seriessdetalle' serie.id %}">Ver</a> <a href="{% url 'seriespelicula'serie.id %}">Eliminar</a> 
    </ul>
    {% endfor %}
 

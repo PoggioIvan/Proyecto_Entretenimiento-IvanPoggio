@@ -1,0 +1,24 @@
+{% extends "app\padre.html" %}
+{% load static %}
+
+{% block titulo %}
+
+<h1 style="color:whitesmoke">Busqueda</h1>
+<h3 style="color: white;"> {{ mensaje }} </h3>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+<form action="{%url 'buscarpeli' %}" method="GET">
+    <input type="text" name="nombre" placeholder="inserte pelicula">
+    <input type="submit" value="buscar pelicula">
+</form>
+<form action="{%url 'buscarserie' %}" method="GET">
+    <input type="text" name="nombre" placeholder="inserte serie">
+    <input type="submit" value="buscar serie">
+</form>
+<form action="{%url 'buscardocumental' %}" method="GET">
+    <input type="text" name="nombre" placeholder="inserte documental">
+    <input type="submit" value="buscar documental">
+</form>
+{% endblock %} 

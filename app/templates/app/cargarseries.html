@@ -1,2 +1,21 @@
-{% extends "app\static\app\padre.html" %}
+{% extends "app\padre.html" %}
 {% load static %}
+
+{% block titulo %}
+
+<h1 style="color:whitesmoke">Subir Una Serie</h1>
+<h3 style="color: white;"> {{ mensaje }} </h3>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+<form action="{% url 'CargarSeries' %}" method="POST"> {% csrf_token %}
+    <p> hola</p>
+        <table>
+            {{ form.as_table }}
+        </table>
+
+    <input type="submit" value="Guardar Serie">
+
+</form>
+{% endblock %} 

@@ -10,10 +10,10 @@
 {% block contenido_que_cambia %}
 
 <form action="{% url 'CargarPeliculas' %}" method="POST"> {% csrf_token %}
-<p> hola</p>
-    <table>
-        {{ form.as_table }}
-    </table>
+    <p> hola</p>
+        <table>
+            {{ form.as_table }}
+        </table>
 
     <input type="submit" value="Guardar Pelicula">
 

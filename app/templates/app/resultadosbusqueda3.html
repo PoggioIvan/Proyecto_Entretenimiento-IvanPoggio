@@ -1,0 +1,20 @@
+{% extends "app\padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<h1 style="color:whitesmoke">buscando el Documental</h1>
+<h3 style="color: rgb(255, 255, 255);"> {{ mensaje }} </h3>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+    {% if documental %}
+   <ul>
+    {% for Documental in documental %}
+    <li> {{Documental.nombre}} // {{Documental.genero}}</li>
+    
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+       
+{% endblock %}
