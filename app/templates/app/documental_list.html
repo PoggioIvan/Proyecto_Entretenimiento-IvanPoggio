@@ -4,15 +4,15 @@
 {% block titulo %}
 <h1 style="color:whitesmoke">Documentales</h1>
 <h3 style="color: rgb(255, 255, 255);"> {{ mensaje }} </h3>
+<a class="btn btn-secondary" href="{% url 'CargarDocumentales' %}">CARGAR</a>
 {% endblock %}
 
 {% block contenido_que_cambia %}
    <ul>
      {% for documentales in object_list %}
-        <li> {{Documental.nombre}} </li> <a href="{% url 'documentalesdetalle' documental.id %}">Ver</a> <a href="{% url 'eliminardocumental' documental.id %}">Eliminar</a> 
+     <h3 align="left" > <li> {{ documentales }}  <a class="btn btn-primary" href="{% url 'documentalesdetalle' documentales.id %}" >ver</a> </li></h3>
    </ul>
    {% endfor %}
 
        
 {% endblock %}
-a

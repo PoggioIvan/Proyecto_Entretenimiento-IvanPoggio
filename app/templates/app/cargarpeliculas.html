@@ -5,12 +5,17 @@
 
 <h1 style="color:whitesmoke">Subir Una Pelicula</h1>
 <h3 style="color: white;"> {{ mensaje }} </h3>
+<body>
+    <p></p>
+    <p></p>
+<a class="btn btn-secondary" href="{% url 'peliculas' %}">volver</a>
+</body>
 {% endblock %}
 
 {% block contenido_que_cambia %}
 
 <form action="{% url 'CargarPeliculas' %}" method="POST"> {% csrf_token %}
-    <p> hola</p>
+    
         <table>
             {{ form.as_table }}
         </table>
@@ -18,4 +23,5 @@
     <input type="submit" value="Guardar Pelicula">
 
 </form>
+
 {% endblock %} 

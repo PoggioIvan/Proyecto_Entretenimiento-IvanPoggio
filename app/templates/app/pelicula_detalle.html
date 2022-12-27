@@ -4,9 +4,17 @@
 {% block titulo %}
 <h1 style="color:whitesmoke">detalle de: <i>{{pelicula.nombre}}</i> </h1>
 <h3 style="color: white;"> {{ mensaje }} </h3>
-
-<p>NOMBRE : <i>{{pelicula.nombre}}</i></p>
-<p>GENERO : <i>{{pelicula.genero}}</i></p>
-<p>ANIO : <i>{{pelicula.anio}}</i></p>
-<p>ACTOR PRINCIPAL : <i>{{pelicula.actor_principal}}</i></p>
-<p>COMENTARIO : <i>{{pelicula.comentario}}</i></p>
+<a class="btn btn-secondary" href="{% url 'peliculas' %}">volver</a>
+{% endblock %}
+`
+{% block contenido_que_cambia %}
+<body>
+    
+    <h4>NOMBRE : <i>{{pelicula.nombre}}</i></h4>
+    <h4>GENERO : <i>{{pelicula.genero}}</i></h4>
+    <h4>ANIO : <i>{{pelicula.anio}}</i></h4>
+    <h4>ACTOR PRINCIPAL : <i>{{pelicula.actor_principal}}</i></h4>
+    <h4>COMENTARIO : <i>{{pelicula.comentario}}</i></h4>
+    
+</body>
+    {% endblock %}

@@ -9,7 +9,7 @@ class Pelicula(models.Model):
     actor_principal = models.CharField(max_length=40, null=True)
     comentario = models.CharField(max_length=500, null=True)
     def __str__(self):
-        return f"{self.nombre} {self.genero}"
+        return f"{self.nombre}"
    
 
 class Serie(models.Model):
@@ -19,7 +19,7 @@ class Serie(models.Model):
     actor_principal = models.CharField(max_length=40, null=True)
     comentario = models.CharField(max_length=500, null=True)
     def __str__(self):
-        return f"{self.nombre} {self.genero}"
+        return f"{self.nombre}"
  
 
 class Documental(models.Model):

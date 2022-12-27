@@ -5,12 +5,17 @@
 
 <h1 style="color:whitesmoke">Subir Una Serie</h1>
 <h3 style="color: white;"> {{ mensaje }} </h3>
+<body>
+    <p></p>
+    <p></p>
+<a class="btn btn-secondary" href="{% url 'series' %}">volver</a>
+</body>
 {% endblock %}
 
 {% block contenido_que_cambia %}
 
 <form action="{% url 'CargarSeries' %}" method="POST"> {% csrf_token %}
-    <p> hola</p>
+    
         <table>
             {{ form.as_table }}
         </table>
@@ -18,4 +23,5 @@
     <input type="submit" value="Guardar Serie">
 
 </form>
+
 {% endblock %} 

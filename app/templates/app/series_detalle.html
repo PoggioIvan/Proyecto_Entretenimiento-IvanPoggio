@@ -1,0 +1,20 @@
+{% extends "app\padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<h1 style="color:whitesmoke">detalle de: <i>{{serie.nombre}}</i> </h1>
+<h3 style="color: white;"> {{ mensaje }} </h3>
+<a class="btn btn-secondary" href="{% url 'series' %}">volver</a>
+{% endblock %}
+`
+{% block contenido_que_cambia %}
+<body>
+    
+    <h4>NOMBRE : <i>{{serie.nombre}}</i></h4>
+    <h4>GENERO : <i>{{serie.genero}}</i></h4>
+    <h4>TEMPORADAS : <i>{{serie.temporadas}}</i></h4>
+    <h4>ACTOR PRINCIPAL : <i>{{serie.actor_principal}}</i></h4>
+    <h4>COMENTARIO : <i>{{serie.comentario}}</i></h4>
+    
+</body>
+    {% endblock %}

@@ -4,14 +4,19 @@
 {% block titulo %}
 <h1 style="color:whitesmoke">Peliculas</h1>
 <h3 style="color: rgb(255, 255, 255);"> {{ mensaje }} </h3>
+<a class="btn btn-secondary" href="{% url 'CargarPeliculas' %}">CARGAR</a>
 {% endblock %}
 
 {% block contenido_que_cambia %}
-   <ul>
-     {% for Peliculas in object_list %}
-       <h1> <li> {{pelicula.nombre}} </li><i> <a href="{% url 'peliculasdetalle' pelicula.id %}">Ver</a> </i><i><a href="{% url 'eliminarpelicula' pelicula.id %}">Eliminar</a> </i></h1>
-   </ul>
-   {% endfor %}
+<body>
+  
 
+   <ul>
+     {% for peliculas in object_list %}
+    <h3 align="left" > <li> {{ peliculas }}  <a class="btn btn-primary" href="{% url 'peliculasdetalle' peliculas.id %}" >ver</a> </li></h3> 
+    </ul>
+    
+    {% endfor %}
+</body>    
        
 {% endblock %}

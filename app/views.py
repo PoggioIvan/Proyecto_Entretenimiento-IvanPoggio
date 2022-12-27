@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from app.models import *
 from app.forms import *
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.http import HttpResponse
+from django.urls import reverse_lazy
 
 # Create your views here.
 def inicio(request):
@@ -75,9 +76,9 @@ class series(ListView):
     model=Serie
     template_name= "app/series_list.html"
 
-class series(DetailView):
+class seriesdetalle(DetailView):
     model= Serie
-    template_name= "app/seriesdetalle.html"
+    template_name= "app/series_detalle.html"
 
 def CargarSeries(request):
     if request.method=="POST":
@@ -98,6 +99,7 @@ def CargarSeries(request):
     else:
         formulario=SerieForm()
         return render(request, 'app/cargarseries.html', {"form": formulario})
+#.........................................................................................................................................
 
 def CargarDocumentales(request):
     if request.method=="POST":
@@ -126,6 +128,7 @@ class DocumentalDetalle(DetailView):
     model=Documental
     template_name="app/documental_detalle.html"
 
-
+#cuando cree los usuarios tengo que poner que la navbar si no estas registrado no muestre nada solo registrarce 
+# y que esa pagina tenga una lista con todas las series peliculas y documentales que hay 
 
 
