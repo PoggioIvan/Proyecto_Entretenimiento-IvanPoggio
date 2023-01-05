@@ -1,0 +1,19 @@
+{% extends "app\padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<h1 style="color:whitesmoke">Borrar: <i>{{pelicula.nombre}}</i></h1>
+<h3 style="color: rgb(255, 255, 255);"> {{ mensaje }} </h3>
+<a class="btn btn-secondary" href="{% url 'peliculas' %}">VOLVER</a>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+   
+  <form method="POST"> {% csrf_token %}
+      <h3>Estas a punto de borrar "{{object}}" estas seguro? </h3>
+      <input type="submit" value="Si">
+
+  </form>
+
+       
+{% endblock %}

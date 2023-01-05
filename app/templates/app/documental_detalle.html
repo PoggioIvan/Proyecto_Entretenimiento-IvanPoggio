@@ -4,7 +4,7 @@
 {% block titulo %}
 <h1 style="color:whitesmoke">detalle de: <i>{{documental.nombre}}</i> </h1>
 <h3 style="color: white;"> {{ mensaje }} </h3>
-<a class="btn btn-secondary" href="{% url 'documentales' %}">volver</a>
+<a class="btn btn-secondary" href="{% url 'documentales' %}">VOLVER</a>
 {% endblock %}
 `
 {% block contenido_que_cambia %}
@@ -13,6 +13,6 @@
     <h4>NOMBRE : <i>{{documental.nombre}}</i></h4>
     <h4>EPISODIOS : <i>{{documental.episodios}}</i></h4>
     <h4>COMENTARIO : <i>{{documental.comentario}}</i></h4>
-    
+    <a class="btn btn-danger" href="{% url 'documentales.eliminar' documental.id %}" >ELIMINAR</a><a class="btn btn-success" href="{% url 'documentales.editar' documental.id %}" >EDITAR</a>
 </body>
     {% endblock %}

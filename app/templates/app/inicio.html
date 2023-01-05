@@ -1,2 +1,15 @@
 {% extends "app\padre.html" %}
 {% load static %}
+
+{% block navbar1 %}
+<a class="navbar-brand" href="{% url 'register' %}">REGISTRATE</a>
+{% endblock %}
+
+{% block navbar %}
+<a class="navbar-brand" href="{% url 'login' %}">INICIA SESION</a>
+
+{% endblock %}
+
+{% block contenido_que_cambia %}
+<h2> Registrate o inicia sesion para poder acceder al contenido</h2>
+{% endblock %}

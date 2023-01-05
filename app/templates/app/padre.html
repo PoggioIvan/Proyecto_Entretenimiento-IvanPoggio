@@ -18,14 +18,18 @@
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-5">
+                {% block navbar1 %}
                 <a class="navbar-brand" href="{% url 'inicio' %}">inicio</a>
+                {% endblock %}
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        {% block navbar %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'peliculas' %}">Peliculas</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'series' %}">Series</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'documentales' %}">Documentales</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'busqueda' %}">Buscar</a></li>
+                        {% endblock %}
                     </ul>
                 </div>
             </div>
@@ -39,7 +43,7 @@
                         <div class="text-center my-5">
                             {% block titulo%}
                             <h1 class="display-5 fw-bolder text-white mb-2">peliculas, series y documentales que recomendamos ver </h1>
-                            <p class="lead text-white-50 mb-4">un cierto tipo de guia para ver lo mejor</p>
+                            <p class="lead text-white-50 mb-4">un cierto tipo de guia para ver lo mejor del entretenimiento</p>
                             {% endblock %}
                         </div>
                     </div>

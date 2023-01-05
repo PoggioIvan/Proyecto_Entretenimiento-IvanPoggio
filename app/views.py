@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from app.models import *
 from app.forms import *
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView
 from django.views.generic.detail import DetailView
-from django.http import HttpResponse
+from django.views.generic.edit import  UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 # Create your views here.
@@ -48,8 +48,14 @@ class peliculasdetalle(DetailView):
     model=Pelicula
     template_name= "app/pelicula_detalle.html"
 
-class eliminarpelicula(DetailView):
-    pass
+class peliculaeliminar(DeleteView):
+    model = Pelicula
+    success_url = reverse_lazy("peliculas")
+    
+class peliculaeditar(UpdateView):
+    model = Pelicula
+    success_url = reverse_lazy("peliculas")
+    fields = ['nombre', 'genero', 'anio', 'actor_principal', 'comentario']
 
 def CargarPeliculas(request):
     if request.method=="POST":
@@ -64,7 +70,7 @@ def CargarPeliculas(request):
             comentario= informacion["comentario"]
             Peliculas= Pelicula(nombre=nombre, genero=genero, anio=anio, actor_principal=actor_principal, comentario=comentario)
             Peliculas.save()
-            return render(request, "app/peliculas_list.html", {"mensaje":"peli cargada correctamente"})
+            return render(request, "app/CargarPeliculas.html", {"mensaje":"peli cargada correctamente"})
         else:
             return render(request, "app/CargarPeliculas.html", {"form":form, "mensaje":"info invalida"})
     else:
@@ -80,6 +86,15 @@ class seriesdetalle(DetailView):
     model= Serie
     template_name= "app/series_detalle.html"
 
+class serieseditar(UpdateView):
+    model = Serie
+    success_url= reverse_lazy("series")
+    fields = ['nombre', 'genero', 'temporadas', 'actor_principal', 'comentario']
+
+class serieseliminar(DeleteView):
+    model= Serie
+    success_url = reverse_lazy("series")
+
 def CargarSeries(request):
     if request.method=="POST":
         form= SerieForm(request.POST)
@@ -93,7 +108,7 @@ def CargarSeries(request):
             comentario=info["comentario"]
             Series=Serie(nombre=nombre, genero=genero, temporadas=temporadas, actor_principal=actor_principal, comentario=comentario)
             Series.save()
-            return render(request, 'app/series_list.html' , {"mensaje":"serie cargada"})
+            return render(request, 'app/cargarseries.html' , {"mensaje":"serie cargada"})
         else:
             return render(request, 'app/cargarseries.html', {"form": form, "mensaje": "info invalida"})
     else:
@@ -112,7 +127,7 @@ def CargarDocumentales(request):
             comentario=info["comentario"]
             Documentales= Documental(nombre= nombre, episodios= episodios, comentario= comentario)
             Documentales.save()
-            return render(request, 'app/documental_list.html',{"mensaje":"documental cargado"})
+            return render(request, 'app/cargardocumentales.html',{"mensaje":"documental cargado"})
         else:
             return render(request, 'app/cargardocumentales.html', {"form": form, "mensaje":"info invalida"})
     else:
@@ -124,9 +139,18 @@ class documentales(ListView):
     model=Documental
     template_name="app/documental_list.html"
 
-class DocumentalDetalle(DetailView):
+class DocumentalesDetalle(DetailView):
     model=Documental
     template_name="app/documental_detalle.html"
+
+class documentaleseliminar(DeleteView):
+    model = Documental
+    success_url = reverse_lazy("documentales")
+
+class documentaleseditar(UpdateView):
+    model= Documental
+    success_url = reverse_lazy("documentales")
+    fields = ['nombre', 'episodios', 'comentario']
 
 #cuando cree los usuarios tengo que poner que la navbar si no estas registrado no muestre nada solo registrarce 
 # y que esa pagina tenga una lista con todas las series peliculas y documentales que hay 
