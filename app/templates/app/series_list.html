@@ -10,7 +10,7 @@
 {% block contenido_que_cambia %}
    <ul>
      {% for serie in object_list %}
-     <h3 align="left" > <li> {{ serie }}  <a class="btn btn-primary" href="{% url 'seriesdetalle' serie.id %}" >ver</a> </li></h3>
+     <h3 align="left" > <li> {{serie}}  <a class="btn btn-primary" href="{% url 'seriesdetalle' serie.id %}" >ver</a> </li></h3>
    {% endfor %}
 
        

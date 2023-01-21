@@ -19,16 +19,20 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-5">
                 {% block navbar1 %}
-                <a class="navbar-brand" href="{% url 'inicio' %}">inicio</a>
+                <a class="navbar-brand" href="{% url 'iniciousuarios' %}">Inicio</a>
                 {% endblock %}
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-5 mb-lg-1">
+                        {% block usuario %}
+                        {% endblock %}
+                    </ul>
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         {% block navbar %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'peliculas' %}">Peliculas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'series' %}">Series</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'documentales' %}">Documentales</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'busqueda' %}">Buscar</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{% url 'peliculas' %}">Peliculas</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{% url 'series' %}">Series</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{% url 'documentales' %}">Documentales</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{% url 'busqueda' %}">Buscar</a></li>
                         {% endblock %}
                     </ul>
                 </div>
@@ -68,3 +72,54 @@
     </body>
 </html>
        
+       
+{% block footer %}
+
+<style>
+    html{
+        height: 100%;
+    }
+    body{
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+    }
+    .gregory{
+         margin-top: auto;
+    }
+</style>
+
+<section class="gregory">
+    <!-- Footer -->
+    <footer class="text-center text-white" style="background-color: #000000;">
+      <!-- Grid container -->
+      <div class="container p-4 pb-0">
+        <!-- Section: CTA -->
+        <section class="">
+          <p class="d-flex justify-content-center align-items-center">
+            <a href="{% url 'paginas' %}">
+            <button type="button" class="btn btn-outline-light btn-rounded">
+              PAGINAS ACCESIBLES
+            </button> </a>
+            <a href="{% url 'about' %}">
+            <button type="button" class="btn btn-outline-light btn-rounded" role="link" >
+                ACERCA DE MI
+              </button>
+            </a>
+          </p>
+          
+        </section>
+        <!-- Section: CTA -->
+      </div>
+      <!-- Grid container -->
+  
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2020 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+</section>
+{% endblock %}

@@ -3,10 +3,14 @@
 
 {% block titulo %}
 <h1 style="color:whitesmoke">Bienvenido a la pagina de inicio de los usuarios logueados</h1>
-<h3 style="color: rgb(255, 255, 255);"> {{ mensaje }} </h3>
+<h1 style="color: rgb(255, 255, 255);"> {{ mensaje }} </h1>
 
 {% endblock %}
-
+{% block navbar1 %}
+<img src="{{ avatar }}" alt=""></img>
+<h1 class="tilte"><a class="navbar-brand" href="{% url 'perfil' %}">Bienvenido {{user.username}}!</a></h5>
+{% endblock %}
 {% block contenido_que_cambia %}
 <h1>Sentite libre de agregar</h1>
 <p class="lead"> empeza a navegar con alguna de las opciones de la navbar =)</p>
+{% endblock %}

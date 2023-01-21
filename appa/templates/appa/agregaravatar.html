@@ -1,0 +1,20 @@
+{% extends "app\padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<h1 style="color:whitesmoke">AGREGAR AVATAR DE: {{ usuario.username}}</h1>
+<h3 style="color: azure;"> La foto tiene que estar por los 69x71 pixeles</h3>
+<h3 style="color: rgb(255, 255, 255);"> {{ mensaje }} </h3>
+<a class="btn btn-secondary" href="{% url 'perfil' %}">VOLVER</a>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+<form action="{% url 'agregaravatar' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+    <table>
+        {{ form.as_table}}
+    </table>
+    <input type="submit" value="Agregar Avatar">
+</form>
+
+{% endblock %}

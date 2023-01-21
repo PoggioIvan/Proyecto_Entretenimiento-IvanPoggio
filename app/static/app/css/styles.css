@@ -295,10 +295,18 @@ kbd kbd {
 figure {
   margin: 0 0 1rem;
 }
-
+.tilte{
+  padding-right: 20px;
+  padding: 20px;
+}
 img,
 svg {
   vertical-align: middle;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  height: 64px;
+  width: 64px;
 }
 
 table {
@@ -3952,7 +3960,7 @@ textarea.form-control-lg {
   }
 }
 .nav-link:hover, .nav-link:focus {
-  color: #0a58ca;
+  background: #505458;
 }
 .nav-link.disabled {
   color: #6c757d;
@@ -3985,6 +3993,8 @@ textarea.form-control-lg {
   background-color: #fff;
   border-color: #dee2e6 #dee2e6 #fff;
 }
+
+
 .nav-tabs .dropdown-menu {
   margin-top: -1px;
   border-top-left-radius: 0;
@@ -11293,4 +11303,11 @@ textarea.form-control-lg {
   height: 4rem;
   width: 4rem;
   font-size: 2rem;
+}
+.avatar {
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  height: 64px;
+  width: 64px;
 }

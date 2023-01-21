@@ -8,15 +8,15 @@
 {% endblock %}
 
 {% block contenido_que_cambia %}
-<body>
+
   
 
    <ul>
      {% for peliculas in object_list %}
-    <h3 align="left" > <li> {{ peliculas }}  <a class="btn btn-primary" href="{% url 'peliculasdetalle' peliculas.id %}" >ver</a> </li></h3> 
+    <h3 align="left" > <li> {{peliculas}}  <a class="btn btn-primary" href="{% url 'peliculasdetalle' peliculas.id %}" >ver</a> </li></h3> 
     </ul>
     
     {% endfor %}
-</body>    
+ 
        
 {% endblock %}

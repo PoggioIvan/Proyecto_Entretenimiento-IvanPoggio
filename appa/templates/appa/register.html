@@ -5,7 +5,9 @@
 <h1 style="color:whitesmoke">REGISTRATE</h1>
 <h3 style="color: rgb(255, 255, 255);"> {{ mensaje }} </h3>
 {% endblock %}
-
+{% block navbar1 %}
+    <a class="navbar-brand" href="{% url 'inicio' %}">inicio</a>
+{% endblock %}
 {% block navbar %}
 {% endblock %}
 {% block contenido_que_cambia %}
@@ -22,3 +24,5 @@
 </form>
 
 {% endblock%}
+{% block footer %}
+{% endblock %}

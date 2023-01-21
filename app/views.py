@@ -5,14 +5,28 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import  UpdateView, DeleteView
 from django.urls import reverse_lazy
+from appa.views import Avatar
+
 
 # Create your views here.
+
 def inicio(request):
     return render(request, "app/inicio.html")
 
-def busqueda(request):
-    return render(request,'app/busqueda.html')
+def iniciousuarios(request):
+    return render(request,"app/inicio_usuarios.html", {"avatar": Avatar(request)} )
 
+def perfil(request):
+    return render(request,"app/perfil.html",{"avatar":Avatar(request)})
+
+def busqueda(request):
+    return render(request,"app/busqueda.html")
+
+def about(request):
+    return render(request, "app/about.html")
+
+def paginas(request):
+    return render(request,"app/paginas.html")
 
 def buscarpeli(request):
         nombre=request.GET["nombre"]
@@ -55,7 +69,7 @@ class peliculaeliminar(DeleteView):
 class peliculaeditar(UpdateView):
     model = Pelicula
     success_url = reverse_lazy("peliculas")
-    fields = ['nombre', 'genero', 'anio', 'actor_principal', 'comentario']
+    fields = ['nombre', 'genero', 'estreno', 'comentario', 'imagen']
 
 def CargarPeliculas(request):
     if request.method=="POST":
@@ -65,10 +79,10 @@ def CargarPeliculas(request):
             informacion= form.cleaned_data
             nombre= informacion["nombre"]
             genero= informacion["genero"]
-            anio= informacion["anio"]
-            actor_principal= informacion["actor_principal"]
+            estreno=informacion["Fecha De Estreno"]
+            imagen=informacion["Imagen"]
             comentario= informacion["comentario"]
-            Peliculas= Pelicula(nombre=nombre, genero=genero, anio=anio, actor_principal=actor_principal, comentario=comentario)
+            Peliculas= Pelicula(nombre=nombre, genero=genero, estreno=estreno,imagen=imagen, comentario=comentario)
             Peliculas.save()
             return render(request, "app/CargarPeliculas.html", {"mensaje":"peli cargada correctamente"})
         else:
@@ -89,7 +103,7 @@ class seriesdetalle(DetailView):
 class serieseditar(UpdateView):
     model = Serie
     success_url= reverse_lazy("series")
-    fields = ['nombre', 'genero', 'temporadas', 'actor_principal', 'comentario']
+    fields = ['nombre', 'genero', 'estreno', 'comentario', 'imagen']
 
 class serieseliminar(DeleteView):
     model= Serie
@@ -103,10 +117,10 @@ def CargarSeries(request):
             info= form.cleaned_data
             nombre=info["nombre"]
             genero=info["genero"]
-            temporadas=info["temporadas"]
-            actor_principal=info["actor_principal"]
             comentario=info["comentario"]
-            Series=Serie(nombre=nombre, genero=genero, temporadas=temporadas, actor_principal=actor_principal, comentario=comentario)
+            estreno=info["Fecha De Estreno"]
+            imagen=info["Imagen"]
+            Series=Serie(nombre=nombre, genero=genero,estreno=estreno , imagen=imagen, comentario=comentario)
             Series.save()
             return render(request, 'app/cargarseries.html' , {"mensaje":"serie cargada"})
         else:
@@ -123,9 +137,10 @@ def CargarDocumentales(request):
         if form.is_valid():
             info= form.cleaned_data
             nombre=info["nombre"]
-            episodios=info["episodios"]
             comentario=info["comentario"]
-            Documentales= Documental(nombre= nombre, episodios= episodios, comentario= comentario)
+            estreno=info["Fecha De Estreno"]
+            imagen=info["Imagen"]
+            Documentales= Documental(nombre= nombre, estreno=estreno,imagen=imagen, comentario= comentario)
             Documentales.save()
             return render(request, 'app/cargardocumentales.html',{"mensaje":"documental cargado"})
         else:
@@ -150,9 +165,8 @@ class documentaleseliminar(DeleteView):
 class documentaleseditar(UpdateView):
     model= Documental
     success_url = reverse_lazy("documentales")
-    fields = ['nombre', 'episodios', 'comentario']
+    fields = ['nombre', 'comentario', 'estreno','imagen']
 
-#cuando cree los usuarios tengo que poner que la navbar si no estas registrado no muestre nada solo registrarce 
-# y que esa pagina tenga una lista con todas las series peliculas y documentales que hay 
+
 
 

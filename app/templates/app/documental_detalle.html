@@ -11,8 +11,9 @@
 <body>
     
     <h4>NOMBRE : <i>{{documental.nombre}}</i></h4>
-    <h4>EPISODIOS : <i>{{documental.episodios}}</i></h4>
     <h4>COMENTARIO : <i>{{documental.comentario}}</i></h4>
+    <h4>ESTRENO : <i>{{documental.estreno}}</i></h4>
+    <h4>IMAGEN : <i>{{documental.imagen}}</i></h4>
     <a class="btn btn-danger" href="{% url 'documentales.eliminar' documental.id %}" >ELIMINAR</a><a class="btn btn-success" href="{% url 'documentales.editar' documental.id %}" >EDITAR</a>
 </body>
     {% endblock %}

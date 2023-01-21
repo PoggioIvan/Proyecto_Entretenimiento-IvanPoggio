@@ -12,9 +12,10 @@
     
     <h4>NOMBRE : <i>{{serie.nombre}}</i></h4>
     <h4>GENERO : <i>{{serie.genero}}</i></h4>
-    <h4>TEMPORADAS : <i>{{serie.temporadas}}</i></h4>
-    <h4>ACTOR PRINCIPAL : <i>{{serie.actor_principal}}</i></h4>
+    <h4>AUTOR : <i>{{serie.autor}}</i></h4>
     <h4>COMENTARIO : <i>{{serie.comentario}}</i></h4>
+    <h4>ESTRENO : <i>{{serie.estreno}}</i></h4>
+    <h4>IMAGEN : <i>{{serie.imagen}}</i></h4>
     <a class="btn btn-danger" href="{% url 'series.eliminar' serie.id %}" >ELIMINAR</a><a class="btn btn-success" href="{% url 'series.editar' serie.id %}" >EDITAR</a>
 </body>
     {% endblock %}

@@ -1,0 +1,40 @@
+{% extends "app\padre.html" %}
+{% load static %}
+
+{% block usuario %}
+
+{% endblock %}
+{% block navbar %}
+{% endblock %}
+{% block titulo %}
+<h1 style="color:whitesmoke">{{user.username}} <img src="{{avatar}}" alt=""></h1>
+
+{% endblock %}
+
+{% block contenido_que_cambia %}
+    <style>
+        .btn {
+            border:none;
+            background-color: rgb(7, 7, 34);
+            padding: 16px 150px;
+            font-size: 20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn:hover{background-color:rgb(44, 126, 233) ;}
+        
+        .primary {color:aliceblue;}
+        .danger{color: aliceblue;}
+        .success{color: aliceblue;}
+        .success:hover{background: greenyellow;}
+        .danger:hover{background: red;}
+
+    </style>
+    <a class="btn primary" href="{% url 'editar' %}">EDITAR</a> 
+    <a class="btn success" href="{% url 'agregaravatar'%}">SUBIR AVATAR</a>
+    <a class="btn danger" href="{% url 'logout' %}">CERRAR SESION</a>
+
+
+{% endblock %}

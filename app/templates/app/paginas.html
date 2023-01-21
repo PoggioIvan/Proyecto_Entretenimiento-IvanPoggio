@@ -1,0 +1,42 @@
+{% extends "app\padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<h1 style="color:whitesmoke">TODAS LAS PAGINAS DISPONIBLES</h1>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+<h2 class="tilte"><a href="{% url 'perfil' %}">perfil</a>
+<a>--</a>
+<a href="{% url 'iniciousuarios'%}">iniciousuarios</a>
+<a>--</a>
+<a href="{% url 'busqueda'%}">busqueda</a>
+<a>--</a>
+<a href="{% url 'paginas'%}">paginas</a>
+<a>--</a>
+<a href="{% url 'about'%}">about</a>
+<a>--</a>
+<a href="{% url 'peliculas'%}">peliculas</a>
+<a>--</a>
+<a href="{% url 'series'%}">series</a>
+<a>--</a>
+<a href="{% url 'documentales'%}">documentales</a>
+<a>--</a>
+<a href="{% url 'CargarDocumentales'%}">cargardocumentales</a>
+<a>--</a>
+<a href="{% url 'CargarPeliculas' %}">cargarpelis</a>
+<a>--</a>
+<a href="{% url 'CargarSeries' %}">cargarseries</a>
+<a>--</a>
+<a href="{% url 'register'%}">register</a>
+<a>--</a>
+<a href="{% url 'login'%}">login</a>
+<a>--</a>
+<a href="{% url 'logout'%}">logout</a>
+<a>--</a>
+<a href="{% url 'editar'%}">EditarPerfil</a>
+<a>--</a>
+<a href="{% url 'agregaravatar'%}">agregaravatar</a>
+</h2>
+{% endblock %}

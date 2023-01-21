@@ -4,10 +4,14 @@ from app import views
 urlpatterns=[
 
 path('', views.inicio, name="inicio"),
+path('perfil',views.perfil, name="perfil"),
+path('iniciousuarios',views.iniciousuarios, name="iniciousuarios"),
 path('busqueda', views.busqueda, name="busqueda"),
 path('buscarpeli',views.buscarpeli, name="buscarpeli"),
 path('buscarserie',views.buscarserie, name="buscarserie"),
 path('buscardocumental',views.buscardocumental, name="buscardocumental"),
+path('paginas/', views.paginas, name="paginas"),
+path('about/', views.about, name="about"),
 
 
 path('peliculas/',views.peliculas.as_view(), name="peliculas"),

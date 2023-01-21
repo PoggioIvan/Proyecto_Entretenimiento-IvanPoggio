@@ -1,0 +1,29 @@
+{% extends "app\padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<h1 style="color:whitesmoke">LOGUEATE</h1>
+<h3 style="color: rgb(255, 255, 255);"> {{ mensaje }} </h3>
+{% endblock %}
+{% block navbar1 %}
+    <a class="navbar-brand" href="{% url 'inicio' %}">inicio</a>
+{% endblock %}
+
+{% block navbar %}
+{% endblock %}
+{% block contenido_que_cambia %}
+<form action="{% url 'login' %}" method="POST"> {% csrf_token %}
+
+    <table>
+
+        {{ form.as_table }}
+    
+    </table>
+    <input type="submit" value="entrar">
+
+
+</form>
+
+{% endblock%}
+{% block footer %}
+{% endblock %}
